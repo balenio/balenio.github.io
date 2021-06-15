@@ -43,6 +43,18 @@
         #scrolla {
             display: none;
         }
+
+        #regalo {
+            background: #773118;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            flex-flow: column wrap;
+            justify-content: center;
+            /* justify-content: space-evenly; */
+            align-items: center;
+        }
     </style>
 
     <link
@@ -8705,11 +8717,17 @@
     </g>
     </svg>
 
+    <div id="regalo">
+        <p>VIAGGIONE REGALONE</p>
+        <a href="https://www.example.com">LINKONE</a>
+    </div>
 
     <script>
         const daje = document.getElementById('daje')
         const spazio = document.getElementById('background')
         const scrolla = document.getElementById('scrolla')
+        const regalo = document.getElementById('regalo')
+        const urlParams = new URLSearchParams(window.location.search);
 
         scrolla.addEventListener('click', (e) => {
             spazio.scrollIntoView()
@@ -8723,6 +8741,9 @@
             scrolla.style.display = "block";
 
             spazio.style.display = "block";
+            if (urlParams.get("O") == "O") {
+                regalo.style.display = "flex"
+            }
 
             var capitano = document.getElementById('capitano');
             capitano.muted = false
