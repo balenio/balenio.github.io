@@ -8709,13 +8709,17 @@
     <script>
         const daje = document.getElementById('daje')
         const spazio = document.getElementById('background')
+        const scrolla = document.getElementById('scrolla')
+
+        scrolla.addEventListener('click', (e) => {
+            spazio.scrollIntoView()
+        })
 
         daje.addEventListener('click', musicPlay);
         function musicPlay() {
             daje.remove()
             daje.removeEventListener('click', musicPlay);
 
-            var scrolla = document.getElementById('scrolla')
             scrolla.style.display = "block";
 
             spazio.style.display = "block";
@@ -8724,8 +8728,6 @@
             capitano.muted = false
             capitano.play();
             setVolume()
-
-            // spazio.scrollIntoView()
         }
 
         document.addEventListener('scroll', setVolume);
