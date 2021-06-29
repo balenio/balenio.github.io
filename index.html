@@ -40,8 +40,28 @@
             left: 25vw;
         }
 
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(8vh);
+            }
+
+            60% {
+                transform: translateY(4vh);
+            }
+        }
+
         #scrolla {
             display: none;
+            animation: bounce 2s infinite;
         }
 
         #regalo {
@@ -11508,10 +11528,6 @@
         const scrolla = document.getElementById('scrolla')
         const regalo = document.getElementById('regalo')
         const urlParams = new URLSearchParams(window.location.search);
-
-        scrolla.addEventListener('click', (e) => {
-            spazio.scrollIntoView()
-        })
 
         daje.addEventListener('click', musicPlay);
         function musicPlay() {
